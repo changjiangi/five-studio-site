@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Five Studio — Make Small. Play Big. | Indie Game Studio</title>
+  <meta name="description" content="Five Studio is a 5-person independent game studio crafting inventive PC games for players worldwide. Make Small. Play Big." />
+  <link rel="canonical" href="https://fivvestudio.com/" />
+  <meta name="theme-color" content="#0d1f17" />
+
+  <!-- Open Graph / Social -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Five Studio" />
+  <meta property="og:title" content="Five Studio — Make Small. Play Big." />
+  <meta property="og:description" content="We've got stories you'd never imagine. Five indie developers crafting tight, inventive games for PC & Steam." />
+  <meta property="og:url" content="https://fivvestudio.com/" />
+  <meta property="og:image" content="https://fivvestudio.com/assets/og-cover.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Five Studio — Make Small. Play Big." />
+  <meta name="twitter:description" content="We've got stories you'd never imagine. Five indie developers crafting tight, inventive games for PC & Steam." />
+  <meta name="twitter:image" content="https://fivvestudio.com/assets/og-cover.png" />
+
+  <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <canvas id="dot-matrix" aria-hidden="true"></canvas>
+
+  <div class="site-shell">
+    <header class="site-header">
+      <div class="container nav-inner">
+        <a class="brand-link" href="#top" aria-label="Five Studio Home">
+          <img class="brand-mark" src="./assets/logo-mark.svg" alt="Five Studio Logo" width="46" height="33" />
+          <span class="brand-wordmark">
+            <span class="brand-name">FIVE <span>STUDIO</span></span>
+            <span class="brand-sub">INDIE GAME STUDIO</span>
+          </span>
+        </a>
+
+        <nav aria-label="Primary Navigation">
+          <ul class="nav-links" id="nav-links">
+            <li><a href="#games">Games</a></li>
+            <li><a href="#studio">Studio</a></li>
+            <li><a href="#press">Press Kit</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+
+        <div class="nav-actions">
+          <a class="btn btn-outline btn-sm" href="#contact">Say Hello</a>
+          <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Toggle Menu" aria-expanded="false" aria-controls="nav-links">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <line x1="4" y1="7" x2="20" y2="7" />
+              <line x1="4" y1="12" x2="20" y2="12" />
+              <line x1="4" y1="17" x2="20" y2="17" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="top">
+      <!-- Hero -->
+      <section class="hero">
+        <div class="container hero-grid">
+          <div>
+            <div class="status-pill">
+              <span class="status-dot" aria-hidden="true"></span>
+              <span>Indie Game Studio · 5 Makers</span>
+            </div>
+
+            <h1 class="hero-title">
+              <span class="line-white">MAKE SMALL.</span>
+              <span class="line-accent">PLAY BIG.</span>
+            </h1>
+
+            <p class="hero-lead">We've got stories you'd never imagine. &lt;3</p>
+            <p class="hero-desc">
+              Welcome to Five Studio — a tight-knit 5-person independent game team building focused, inventive PC experiences for players around the world. Embark on a fantastical adventure with us.
+            </p>
+
+            <div class="hero-cta">
+              <a class="btn btn-primary" href="#games">
+                <span>See What We're Building</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M5 12h14" /><path d="m13 5 7 7-7 7" />
+                </svg>
+              </a>
+              <a class="btn btn-outline" href="#contact">Press &amp; Business</a>
+            </div>
+
+            <div class="hero-meta">
+              <div class="meta-item">
+                <span class="meta-label">Primary Platform</span>
+                <span class="meta-value">PC · Steam</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">Core Team</span>
+                <span class="meta-value">5 Indie Developers</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">Release Focus</span>
+                <span class="meta-value">Worldwide</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive Controller Logo Card -->
+          <div class="controller-stage" aria-label="Interactive Five Studio Controller">
+            <div class="stage-topbar">
+              <span>FIVVE_OS // P1–P5 ONLINE</span>
+              <span class="stage-badge" id="stage-counter">INPUTS: 00</span>
+            </div>
+
+            <div class="controller-wrap">
+              <svg class="interactive-logo" id="interactive-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 156" fill="none" role="img" aria-label="Five Studio Interactive Gamepad Logo">
+                <defs>
+                  <mask id="hero-dpad-hole">
+                    <rect x="-20" y="-20" width="40" height="40" fill="#FFFFFF" />
+                    <circle cx="0" cy="0" r="2.3" fill="#000000" />
+                  </mask>
+                </defs>
+
+                <rect x="10" y="10" width="200" height="136" rx="56" ry="56" stroke="#F7F9F6" stroke-width="11" />
+                <path
+                  d="M68 31H146V46H82L77 73H140L159 95L151 128L117 137L68 125L72 110L116 121L138 115L143 99L132 88H61L68 31Z"
+                  fill="#B7FC49"
+                />
+
+                <!-- Interactive D-Pad -->
+                <g transform="translate(49 109)" mask="url(#hero-dpad-hole)">
+                  <rect x="-12" y="-4" width="24" height="8" rx="2.5" fill="#F7F9F6" />
+                  <rect x="-4" y="-12" width="8" height="24" rx="2.5" fill="#F7F9F6" />
+                </g>
+                <g class="ctrl-hit" data-key="UP" data-nudge="nudge-up" tabindex="0" role="button" aria-label="D-Pad Up">
+                  <rect x="43" y="93" width="12" height="12" fill="transparent" />
+                </g>
+                <g class="ctrl-hit" data-key="DOWN" data-nudge="nudge-down" tabindex="0" role="button" aria-label="D-Pad Down">
+                  <rect x="43" y="113" width="12" height="12" fill="transparent" />
+                </g>
+                <g class="ctrl-hit" data-key="LEFT" data-nudge="nudge-left" tabindex="0" role="button" aria-label="D-Pad Left">
+                  <rect x="33" y="103" width="12" height="12" fill="transparent" />
+                </g>
+                <g class="ctrl-hit" data-key="RIGHT" data-nudge="nudge-right" tabindex="0" role="button" aria-label="D-Pad Right">
+                  <rect x="53" y="103" width="12" height="12" fill="transparent" />
+                </g>
+
+                <!-- Interactive 4 Coral Buttons -->
+                <g transform="translate(174 106)" stroke="#E76E63" stroke-width="2.2" fill="none">
+                  <circle class="ctrl-btn-circle" cx="0" cy="-9.5" r="3.4" data-key="Y" data-nudge="nudge-pop" tabindex="0" role="button" aria-label="Button Y" />
+                  <circle class="ctrl-btn-circle" cx="9.5" cy="0" r="3.4" data-key="B" data-nudge="nudge-pop" tabindex="0" role="button" aria-label="Button B" />
+                  <circle class="ctrl-btn-circle" cx="0" cy="9.5" r="3.4" data-key="A" data-nudge="nudge-pop" tabindex="0" role="button" aria-label="Button A" />
+                  <circle class="ctrl-btn-circle" cx="-9.5" cy="0" r="3.4" data-key="X" data-nudge="nudge-pop" tabindex="0" role="button" aria-label="Button X" />
+                </g>
+              </svg>
+            </div>
+
+            <div class="stage-console">
+              <span class="console-text" id="console-text">READY — <strong>PRESS ANY BUTTON</strong></span>
+              <span class="console-hint">CLICK PAD</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Games Section -->
+      <section class="section" id="games">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-eyebrow">01 / Games</span>
+            <h2 class="section-title">What We're Crafting Next</h2>
+            <p class="section-subtitle">
+              Our debut title is currently in active development. We're keeping the wrapper sealed until the playable vertical slice is ready to speak for itself.
+            </p>
+          </div>
+
+          <article class="game-card">
+            <div class="game-visual">
+              <div class="visual-hud-top">
+                <span>ARCHIVE // PROJECT_01</span>
+                <span>BUILD: IN_DEV</span>
+              </div>
+
+              <div class="visual-center">
+                <span class="classified-tag">COMING SOON</span>
+                <p class="classified-code">UNANNOUNCED PROJECT</p>
+                <p class="classified-sub">TARGETING PC · STEAM WORLDWIDE</p>
+              </div>
+
+              <div class="visual-hud-bottom">
+                <span>SIGNAL: LOCKED</span>
+                <span>REVEAL: TBA</span>
+              </div>
+            </div>
+
+            <div class="game-info">
+              <div class="tag-row">
+                <span class="chip chip-lime">In Development</span>
+                <span class="chip chip-coral">Coming Soon</span>
+                <span class="chip">PC · Steam</span>
+              </div>
+
+              <h3 class="game-title">Unannounced Project</h3>
+              <p class="game-desc">
+                Our first original PC game — built around tactile mechanics, surprising twists, and a compact scope that lets every moment shine. Follow our channels to catch the first teaser, playtest invites, and Steam page launch.
+              </p>
+
+              <div class="game-actions">
+                <a class="btn btn-primary" href="#socials">Follow for the Reveal</a>
+                <a class="btn btn-outline" href="mailto:biz@fivvestudio.com?subject=Five%20Studio%20%E2%80%94%20Unannounced%20Project%20Inquiry">
+                  Publisher &amp; Pitch Inquiry
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Studio Section -->
+      <section class="section" id="studio">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-eyebrow">02 / Studio</span>
+            <h2 class="section-title">Small Footprint. Big Worlds.</h2>
+            <p class="section-subtitle">
+              Five Studio was founded by five friends and game makers who believe compact teams can ship bold, unforgettable games.
+            </p>
+          </div>
+
+          <div class="pillars-grid">
+            <div class="pillar-card">
+              <div class="pillar-index">01 // FIVE MAKERS</div>
+              <h3>No Layers, Just Craft</h3>
+              <p>
+                With five people in the room, every designer, engineer, and artist plays the build daily. Ideas go straight from sketch to playable prototype.
+              </p>
+            </div>
+
+            <div class="pillar-card">
+              <div class="pillar-index">02 // MAKE SMALL</div>
+              <h3>Focused, Zero Filler</h3>
+              <p>
+                We intentionally scope tight so we can obsess over game feel, polish, pacing, and the tiny details players notice and share.
+              </p>
+            </div>
+
+            <div class="pillar-card">
+              <div class="pillar-index">03 // PLAY BIG</div>
+              <h3>Built for Players Everywhere</h3>
+              <p>
+                From Steam launches to global creator communities, we design stories and systems that transcend borders and reward curiosity.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Press Kit Section -->
+      <section class="section" id="press">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-eyebrow">03 / Press Kit</span>
+            <h2 class="section-title">Studio Facts &amp; Brand Assets</h2>
+            <p class="section-subtitle">
+              Quick details and vector logos for journalists, content creators, streamers, and publishing partners.
+            </p>
+          </div>
+
+          <div class="press-grid">
+            <div class="panel">
+              <h3 class="panel-title">Fact Sheet</h3>
+              <dl class="facts-list">
+                <div class="fact-row">
+                  <dt>Studio</dt>
+                  <dd>Five Studio</dd>
+                </div>
+                <div class="fact-row">
+                  <dt>Motto</dt>
+                  <dd>Make Small. Play Big.</dd>
+                </div>
+                <div class="fact-row">
+                  <dt>Website</dt>
+                  <dd><a href="https://fivvestudio.com/">fivvestudio.com</a></dd>
+                </div>
+                <div class="fact-row">
+                  <dt>Team Size</dt>
+                  <dd>5 Independent Developers</dd>
+                </div>
+                <div class="fact-row">
+                  <dt>Focus</dt>
+                  <dd>Original PC Indie Games (Steam)</dd>
+                </div>
+                <div class="fact-row">
+                  <dt>Press Email</dt>
+                  <dd><a href="mailto:press@fivvestudio.com">press@fivvestudio.com</a></dd>
+                </div>
+              </dl>
+            </div>
+
+            <div class="panel">
+              <h3 class="panel-title">Official Logos (Vector SVG)</h3>
+              <div class="asset-list">
+                <div class="asset-item">
+                  <div class="asset-left">
+                    <div class="asset-thumb">
+                      <img src="./assets/logo-mark.svg" alt="Five Studio Gamepad Mark preview" />
+                    </div>
+                    <div class="asset-meta">
+                      <strong>Gamepad Mark (Color)</strong>
+                      <span>Transparent SVG · Dark backgrounds</span>
+                    </div>
+                  </div>
+                  <a class="btn btn-outline btn-sm" href="./assets/logo-mark.svg" download="five-studio-logo-mark.svg">Download</a>
+                </div>
+
+                <div class="asset-item">
+                  <div class="asset-left">
+                    <div class="asset-thumb">
+                      <img src="./assets/logo-horizontal.svg" alt="Five Studio Horizontal Lockup preview" />
+                    </div>
+                    <div class="asset-meta">
+                      <strong>Horizontal Lockup</strong>
+                      <span>Transparent SVG · With motto</span>
+                    </div>
+                  </div>
+                  <a class="btn btn-outline btn-sm" href="./assets/logo-horizontal.svg" download="five-studio-logo-horizontal.svg">Download</a>
+                </div>
+
+                <div class="asset-item">
+                  <div class="asset-left">
+                    <div class="asset-thumb">
+                      <img src="./assets/logo-mono-white.svg" alt="Five Studio White Monochrome Logo preview" />
+                    </div>
+                    <div class="asset-meta">
+                      <strong>Monochrome White</strong>
+                      <span>Transparent SVG · Video &amp; overlays</span>
+                    </div>
+                  </div>
+                  <a class="btn btn-outline btn-sm" href="./assets/logo-mono-white.svg" download="five-studio-logo-white.svg">Download</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact & Socials -->
+      <section class="section" id="contact">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-eyebrow">04 / Contact</span>
+            <h2 class="section-title">Reach the Right Desk</h2>
+            <p class="section-subtitle">
+              Whether you're a player, creator, journalist, or publisher, drop us a line — a real person from the team reads every message.
+            </p>
+          </div>
+
+          <div class="contact-grid">
+            <div class="contact-card">
+              <div>
+                <div class="contact-role">General Inquiries</div>
+                <div class="contact-email">hello@fivvestudio.com</div>
+                <p class="contact-note">Say hi, general questions, collaborations, or anything else.</p>
+              </div>
+              <div class="contact-actions">
+                <a class="btn btn-primary btn-sm" href="mailto:hello@fivvestudio.com">Send Email</a>
+                <button class="copy-btn" type="button" data-copy="hello@fivvestudio.com">Copy</button>
+              </div>
+            </div>
+
+            <div class="contact-card">
+              <div>
+                <div class="contact-role">Press &amp; Creators</div>
+                <div class="contact-email">press@fivvestudio.com</div>
+                <p class="contact-note">Media coverage, interviews, YouTube / Twitch creator inquiries &amp; keys.</p>
+              </div>
+              <div class="contact-actions">
+                <a class="btn btn-outline btn-sm" href="mailto:press@fivvestudio.com">Send Email</a>
+                <button class="copy-btn" type="button" data-copy="press@fivvestudio.com">Copy</button>
+              </div>
+            </div>
+
+            <div class="contact-card">
+              <div>
+                <div class="contact-role">Business &amp; Publishing</div>
+                <div class="contact-email">biz@fivvestudio.com</div>
+                <p class="contact-note">Publishing partnerships, localization, platform porting &amp; licensing.</p>
+              </div>
+              <div class="contact-actions">
+                <a class="btn btn-outline btn-sm" href="mailto:biz@fivvestudio.com">Send Email</a>
+                <button class="copy-btn" type="button" data-copy="biz@fivvestudio.com">Copy</button>
+              </div>
+            </div>
+
+            <div class="contact-card">
+              <div>
+                <div class="contact-role">Player Support</div>
+                <div class="contact-email">support@fivvestudio.com</div>
+                <p class="contact-note">Bug reports, technical help, accessibility feedback &amp; privacy requests.</p>
+              </div>
+              <div class="contact-actions">
+                <a class="btn btn-outline btn-sm" href="mailto:support@fivvestudio.com">Send Email</a>
+                <button class="copy-btn" type="button" data-copy="support@fivvestudio.com">Copy</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="socials-grid" id="socials" aria-label="Official Social Media Channels">
+            <a class="social-card" href="https://www.youtube.com/@Fivvestudio_official" target="_blank" rel="noopener noreferrer">
+              <span class="social-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M23.5 6.2a3.02 3.02 0 0 0-2.12-2.14C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.38.56A3.02 3.02 0 0 0 .5 6.2 31.6 31.6 0 0 0 0 12a31.6 31.6 0 0 0 .5 5.8 3.02 3.02 0 0 0 2.12 2.14c1.88.56 9.38.56 9.38.56s7.5 0 9.38-.56a3.02 3.02 0 0 0 2.12-2.14A31.6 31.6 0 0 0 24 12a31.6 31.6 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.3 3.6-6.3 3.6Z" />
+                </svg>
+              </span>
+              <span class="social-meta">
+                <strong>YouTube</strong>
+                <span>@Fivvestudio_official</span>
+              </span>
+            </a>
+
+            <a class="social-card" href="https://www.instagram.com/fivestudio_official/" target="_blank" rel="noopener noreferrer">
+              <span class="social-icon" aria-hidden="true">
+                <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2.5" y="2.5" width="19" height="19" rx="5" />
+                  <circle cx="12" cy="12" r="4.2" />
+                  <circle cx="17.6" cy="6.4" r="1" fill="currentColor" stroke="none" />
+                </svg>
+              </span>
+              <span class="social-meta">
+                <strong>Instagram</strong>
+                <span>@fivestudio_official</span>
+              </span>
+            </a>
+
+            <a class="social-card" href="https://www.tiktok.com/@fivestudio_official" target="_blank" rel="noopener noreferrer">
+              <span class="social-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1Z" />
+                </svg>
+              </span>
+              <span class="social-meta">
+                <strong>TikTok</strong>
+                <span>@fivestudio_official</span>
+              </span>
+            </a>
+
+            <a class="social-card" href="https://www.facebook.com/profile.php?id=61589894813402" target="_blank" rel="noopener noreferrer">
+              <span class="social-icon" aria-hidden="true">
+                <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M13.5 21v-8.2h2.76l.41-3.2H13.5V7.55c0-.93.26-1.56 1.6-1.56h1.7V3.13A22.7 22.7 0 0 0 14.32 3c-2.46 0-4.14 1.5-4.14 4.25v2.35H7.4v3.2h2.78V21h3.32Z" />
+                </svg>
+              </span>
+              <span class="social-meta">
+                <strong>Facebook</strong>
+                <span>Five studio</span>
+              </span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div>&copy; <span id="year">2026</span> Five Studio &middot; fivvestudio.com &middot; Make Small. Play Big.</div>
+        <div class="footer-links">
+          <a href="./privacy/">Privacy Policy</a>
+          <a href="#press">Press Kit</a>
+          <a href="mailto:support@fivvestudio.com">Support</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="./app.js" defer></script>
+</body>
+</html>
