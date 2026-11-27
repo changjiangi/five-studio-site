@@ -19,7 +19,8 @@ Hosted on **GitHub Pages** with zero build steps (pure HTML / CSS / JS + SVG).
 │   ├── logo-horizontal.svg    # 横版完整 Logo
 │   ├── logo-mono-white.svg    # 纯白反色 Logo
 │   ├── og-cover.png           # 1200×630 社交分享封面图
-│   └── pooop-keyart.png       # 1280×720 POOOP 官方宣传图
+│   ├── pooop-keyart.png       # 1280×720 POOOP 官方宣传图
+│   └── pooop/                 # POOOP 透明角色图鉴预览精灵（240×240）
 ├── .nojekyll                  # 禁用 Jekyll 构建，原样发布静态文件
 ├── robots.txt
 └── sitemap.xml
