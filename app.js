@@ -41,57 +41,7 @@
     });
   });
 
-  // 4. Interactive Hero Controller easter egg
-  const logoSvg = document.getElementById('interactive-logo');
-  const consoleText = document.getElementById('console-text');
-  const counterEl = document.getElementById('stage-counter');
-  let inputCount = 0;
-  let nudgeTimer = null;
-
-  const triggerControllerInput = (el) => {
-    if (!logoSvg || !consoleText) return;
-    const key = el.getAttribute('data-key') || 'BTN';
-    const nudgeClass = el.getAttribute('data-nudge') || 'nudge-pop';
-
-    inputCount += 1;
-    if (counterEl) {
-      counterEl.textContent = `INPUTS: ${String(inputCount).padStart(2, '0')}`;
-    }
-
-    logoSvg.classList.remove('nudge-up', 'nudge-down', 'nudge-left', 'nudge-right', 'nudge-pop');
-    void logoSvg.offsetWidth;
-    logoSvg.classList.add(nudgeClass);
-
-    el.classList.add('is-pressed');
-    setTimeout(() => el.classList.remove('is-pressed'), 180);
-
-    clearTimeout(nudgeTimer);
-    nudgeTimer = setTimeout(() => {
-      logoSvg.classList.remove(nudgeClass);
-    }, 200);
-
-    if (inputCount % 5 === 0) {
-      consoleText.classList.add('combo');
-      consoleText.innerHTML = `5P COMBO! <strong>MAKE SMALL. PLAY BIG.</strong>`;
-    } else {
-      consoleText.classList.remove('combo');
-      consoleText.innerHTML = `PRESSED <strong>[${key}]</strong> — P${((inputCount - 1) % 5) + 1} READY`;
-    }
-  };
-
-  if (logoSvg) {
-    logoSvg.querySelectorAll('[data-key]').forEach((control) => {
-      control.addEventListener('click', () => triggerControllerInput(control));
-      control.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          triggerControllerInput(control);
-        }
-      });
-    });
-  }
-
-  // 5. Signature Five Studio dot-matrix backdrop
+  // 4. Signature Five Studio dot-matrix backdrop
   const canvas = document.getElementById('dot-matrix');
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
@@ -138,7 +88,6 @@
       for (let col = -1; col < cols; col++) {
         const idx = row * 131 + col * 17 + 7;
         const tone = pickTone(idx);
-        // Slight staggered grid echoing the Five Studio banner pattern
         const staggerY = (col % 2 === 0 ? 0 : spacing * 0.45);
         dots.push({
           x: col * spacing + (row % 2 === 0 ? 0 : 10),
